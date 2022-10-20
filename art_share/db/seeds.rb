@@ -57,4 +57,10 @@ ActiveRecord::Base.transaction do
     artwork_id: blumps.id,
     viewer_id: jerry.id
   )
+
+  comment1 = Comment.create!(
+    author_id: 3,
+    artwork_id: 1,
+    body: "Man, I could paint better than him"
+  )
 end
