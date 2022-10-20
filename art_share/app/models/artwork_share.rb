@@ -20,7 +20,7 @@ class ArtworkShare < ApplicationRecord
 
     belongs_to :viewer,
         primary_key: :id,
-        foriegn_key: :viewer_id,
+        foreign_key: :viewer_id,
         class_name: :User
 
 end
