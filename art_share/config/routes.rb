@@ -4,12 +4,15 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
 
-  resources :users, only: [:index,:show, :create, :update, :destroy]
-
-  resources :users do
+  resources :users, only: [:index,:show, :create, :update, :destroy] do
     resources :artworks, only: [:index]
     resources :comments, only: [:index]
   end
+
+  # resources :users do
+  #   resources :artworks, only: [:index]
+  #   resources :comments, only: [:index]
+  # end
 
   # get '/users', to: 'users#index'
   # get '/users/:id', to: 'users#show'
@@ -17,11 +20,13 @@ Rails.application.routes.draw do
   # patch '/users/:id', to: 'users#update'
   # delete '/users/:id', to: 'users#destroy'
 
-  resources :artworks, only: [:show, :create, :update, :destroy]
-
-  resources :artworks do
+  resources :artworks, only: [:show, :create, :update, :destroy] do
     resources :comments, only: [:index]
   end
+  
+  # resources :artworks do
+  #   resources :comments, only: [:index]
+  # end
 
   resources :artwork_shares, only: [:create, :destroy]
 
